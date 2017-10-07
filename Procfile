@@ -1,0 +1,1 @@
+web: gunicorn scrapyard.wsgi --log-file -

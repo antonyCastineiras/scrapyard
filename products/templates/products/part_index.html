@@ -1,0 +1,9 @@
+{% if parts %}
+	<ul>
+	{% for part in parts %}
+		<li><a href="{% url 'products:part_detail' part.id %}">{{ part.part_name }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>There are no parts for sale.</p>
+{% endif %}

@@ -19,10 +19,13 @@ class Part(models.Model):
 	part_name = models.CharField(max_length=200)
 	part_number = models.CharField(max_length=200, blank=True, null=True)
 	part_notes = models.TextField(blank=True, null=True)
-	part_storage_locaion = models.CharField(max_length=200)
+	part_storage_location = models.CharField(max_length=200)
 	part_price = models.DecimalField(max_digits=10,decimal_places=2)
 	listed_on_ebay = models.BooleanField(default=False)
 	created_at = models.DateTimeField()
 
 	def __str__(self):
-		return self.car.manufacturer_and_model() + ' ' + self.part_name
+		if self.car:
+			return self.car.manufacturer_and_model() + ' ' + self.part_name
+		else:
+			return self.part_name

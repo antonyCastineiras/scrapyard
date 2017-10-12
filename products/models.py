@@ -10,7 +10,7 @@ class Car(models.Model):
 	created_at = models.DateTimeField()
 
 	def __str__(self):
-		return (self.manufacturer_and_model() + ' - ' self.car_registration).title()
+		return (self.manufacturer_and_model() + ' - ' + self.car_registration).title()
 
 	def manufacturer_and_model(self):
 		return self.car_manufacturer + ' ' + self.car_model
